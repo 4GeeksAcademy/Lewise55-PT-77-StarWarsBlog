@@ -14,6 +14,8 @@ export const initialStore=()=>{
       }
     ],
     characters: [],
+    planets: [],
+    starships: [],
     favorites: []
   }
 
@@ -29,11 +31,26 @@ export default function storeReducer(store, action = {}) {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
+
     case 'add_Character':
 
       return {
         ...store,
         characters: action.payload
+      };
+
+    case 'add_Planets':
+
+      return {
+        ...store,
+        planets: action.payload
+      };
+
+    case 'add_Starshis':
+
+      return {
+        ...store,
+        starships: action.payload
       };
 
     case 'toggle_favorites':
@@ -50,6 +67,7 @@ export default function storeReducer(store, action = {}) {
         ...store,
         favorites: favs
       };
+      
 
       throw Error('Unknown action.');
   }    
