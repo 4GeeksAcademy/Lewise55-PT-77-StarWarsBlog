@@ -10,7 +10,7 @@ export const Home = () => {
 	const [starships, setStarships] = useState([])
 	const {store, dispatch, getCharacters, getPlanets, getStarships} =useGlobalReducer()
 
-	console.log("store.characters:", store.characters);
+	// console.log("store.characters:", store.characters);
 
 	useEffect(() => {
 		getCharacters();
@@ -40,14 +40,14 @@ export const Home = () => {
 				})}				
 			</div>
 
-			<h2>Planets</h2>
+			<h2 className="text-center text-warning mt-5">Planets</h2>
 			<div className="d-flex col-10 overflow-auto mt-5 mx-auto ">
 				{planets?.map((planet, index) => {
 					return	<PlanetCard key={planet.uid} name={planet.name} uid={planet.uid}/>				
 				})}		
 			</div>
 
-			<h2>Startships</h2>
+			<h2 className="text-center text-warning mt-5">Startships</h2>
 			<div className="d-flex col-10 overflow-auto mt-5 mx-auto ">
 				{starships?.map((starship, index) => {
 					return	<StarshipCard key={starship.uid} name={starship.name} uid={starship.uid}/>				

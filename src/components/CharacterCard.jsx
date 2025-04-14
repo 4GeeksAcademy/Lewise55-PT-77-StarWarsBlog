@@ -10,28 +10,26 @@ export const CharacterCard = (props) => {
 
   const [liked, setLiked] = useState(false);
 
-  const toggleLiked = () => {
+  const toggleLiked = (name) => {
     setLiked(!liked);
-    if(liked){
-      handleFavs();
-    }
+    // if(liked){
+      dispatch({type:'toggle_favorites', payload: name})
+    // }
   };
 
-  const handleFavs = () => {
-    store({type:toggle_favorites, payload: props.name})
-  };
+  
 
-  const {store, dispatch} =useGlobalReducer()
+  const {store, dispatch } =useGlobalReducer()
 
     return (
       <div className="card bg-dark mx-2" style={{"minWidth": "18rem"}}>
-        <img src="..." className="card-img-top" alt="..."/>
+        <img src="https://media.timeout.com/images/105863223/750/562/image.jpg" className="card-img-top" alt="..."/>
         <div className="card-body text-center">
           <h5 className="card-title text-light">{props.name}</h5>
           <div className=" d-flex justify-content-between">            
             <Link to={`/CharacterDetails/${props.uid}`} className="btn btn-warning">Learn More</Link>
               <span 
-                onClick={toggleLiked}
+                onClick={() => toggleLiked(props.name)}
                 style={{ color: liked ? 'red' : 'gray'}} 
                 className="icon">
                   <FontAwesomeIcon icon={faHeart} />

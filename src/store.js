@@ -57,17 +57,18 @@ export default function storeReducer(store, action = {}) {
       let favs = store.favorites;
       if(favs.includes(action.payload)) {
         //filter the favs off the favorites array
-        favs = favs.filter((fav, index) => fav.name !== action.payload);
+        favs = favs.filter((fav) => fav !== action.payload);
       }else {
         //add favs to the favorites array
         favs = [...favs, action.payload];
       }
+      console.log(store.favorites);
+      console.log(action);
 
       return {
         ...store,
         favorites: favs
-      };
-      
+      };            
 
       throw Error('Unknown action.');
   }    
