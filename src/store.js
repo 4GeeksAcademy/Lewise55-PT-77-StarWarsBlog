@@ -46,7 +46,7 @@ export default function storeReducer(store, action = {}) {
         planets: action.payload
       };
 
-    case 'add_Starshis':
+    case 'add_Starships':
 
       return {
         ...store,

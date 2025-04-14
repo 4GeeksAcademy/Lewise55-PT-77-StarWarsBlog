@@ -32,7 +32,7 @@ export const Home = () => {
 	
 	
 	return (
-		<div className="text-center mt-5">
+		<div className="text-center text-warning mt-5">
 			<h2>Characters</h2>
 			<div className="d-flex col-10 overflow-auto mt-5 mx-auto ">
 				{characters?.map((character, index) => {
